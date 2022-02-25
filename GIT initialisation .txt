@@ -1,0 +1,3 @@
+ls
+cd C:/Users/noe34/'Python Pycharm'
+git init
