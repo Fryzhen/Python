@@ -3,5 +3,5 @@ cd C:/Users/noe34/'Python Pycharm'
 git init
 git add .
 git commit -m "1.x.x"
-git remote add Games "https://github.com/Fryzhen/Games"
-git push Games
+git remote add Python "https://github.com/Fryzhen/Games"
+git push Python
