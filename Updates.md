@@ -7,3 +7,4 @@
 - 1.0.4 Stupids try again again again....
 - 1.0.5 modifie file names
 - 1.0.6 add chess but doesn't work now
+- 1.0.7 deletings some usless files
