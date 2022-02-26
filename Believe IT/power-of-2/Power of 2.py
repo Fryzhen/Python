@@ -7,6 +7,7 @@ def main():
     print(po2_v2(-1))
     print(po2_v2(5))
 
+
 def po2_v1(number):
     i = 0
     while 2**i <= number:
@@ -15,6 +16,7 @@ def po2_v1(number):
         else:
             i += 1
     return False
+
 
 def po2_v2(number):
     while number > 1:
