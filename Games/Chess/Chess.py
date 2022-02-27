@@ -1,4 +1,5 @@
 import pygame
+import time
 
 global run, lengh, chess_board, surf
 global wr, wn, wb, wp, wq, wk, br, bn, bb, bp, bq, bk
@@ -6,7 +7,10 @@ global wr, wn, wb, wp, wq, wk, br, bn, bb, bp, bq, bk
 
 def setup():
     global run, lengh, chess_board, surf
-    global wr, wn, wb, wp, wq, wk, br, bn, bb, bp, bq, bk
+    global wr, wn, wb, wp, wq, wk, br, bn, bb, bp, bq, bk, black_pieces, white_pieces
+
+    black_pieces = ["T", "C", "F", "G", "D", "P"]
+    white_pieces = ["R", "H", "B", "K", "Q", "S"]
 
     wr = pygame.image.load("wr.png")
     br = pygame.image.load("br.png")
@@ -42,41 +46,34 @@ def setup():
 
 def main():
     global run, lengh, chess_board, surf
+    global black_pieces, white_pieces
 
     print_game_pieces()
-
-    print("retour au main")
+    pygame.display.flip()
+    print(" \n\n\n\n\n")
     print(chess_board)
 
     while run:
-        pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                exit()
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 square_ask = get_square(pygame.mouse.get_pos())
                 if chess_board[square_ask] != "_":
-                    print("Pos 1 select")
+                    piece_move = chess_board[square_ask]
+                    time.sleep(0.2)
+                    print("Pos 1 selected")
                     while run:
-                        pygame.display.flip()
+                        print("Run 2")
                         for event2 in pygame.event.get():
                             if event2.type == pygame.QUIT:
-                                run = False
+                                exit()
                             if pygame.mouse.get_pressed() == (1, 0, 0):
                                 square_ask2 = get_square(pygame.mouse.get_pos())
-                                print("Pos 2 select")
-                                if chess_board[square_ask2] == "_":
-                                    print("ptn c'est sensé marcher")
-                                    print("square ask2", square_ask2)
-                                    print("square ask ", square_ask)
-                                    print("chess_board avant la replace", chess_board)
-                                    chess_board = chess_board[:square_ask2] + chess_board[square_ask] + chess_board[(square_ask2 + 1):]
-                                    print("chess_board au milieu de la replace", chess_board)
-                                    chess_board = chess_board[:square_ask] + "_" + chess_board[(square_ask + 1):]
-                                    print("chess_board après la replace", chess_board)
-                                    main()
-                                else:
-                                    main()
+                                print("Pos 2 selected")
+                                chess_board = chess_board[:square_ask2] + chess_board[square_ask] + chess_board[(square_ask2 + 1):]
+                                chess_board = chess_board[:square_ask] + "_" + chess_board[(square_ask + 1):]
+                                main()
                 else:
                     main()
 
