@@ -9,3 +9,4 @@
 - 1.0.6 add chess but doesn't work now
 - 1.0.7 deletings some usless files
 - 1.0.8 progress in chess
+- 1.0.9 progress in chess
