@@ -413,7 +413,7 @@ def bot_play_v1():
 def restart(tie=0):
     global player_turn, line, clear, number_of_players
     global x_center, x_side, x_corner, o_center, o_side, o_corner, center, side, corner, xplays, oplays
-    global lengh, lengh_2, lengh_max, surf, run
+    global lengh, lengh_2, lengh_max, surf, run, root, frame
 
     print(clear)
     print(line)
@@ -426,7 +426,7 @@ def restart(tie=0):
     if tie == 1:
         button = tk.Button(frame,
                            text="Egalitée clickez pour recommencer",
-                           command=setup)
+                           command=end)
         button.pack(side=tk.LEFT)
 
         root.mainloop()
@@ -434,10 +434,19 @@ def restart(tie=0):
     else:
         button = tk.Button(frame,
                            text="Le Robot a gagné clickez pour recommencer",
-                           command=setup)
+                           command=end)
         button.pack(side=tk.LEFT)
 
         root.mainloop()
+
+
+def end():
+    global player_turn, line, clear, number_of_players
+    global x_center, x_side, x_corner, o_center, o_side, o_corner, center, side, corner, xplays, oplays
+    global lengh, lengh_2, lengh_max, surf, run, root, frame
+
+    root.destroy()
+    setup()
 
 
 def game_get_pos():
